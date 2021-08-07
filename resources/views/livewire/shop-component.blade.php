@@ -130,8 +130,8 @@
 									</div>
 								</div>
 							</li>
-							<li class="col-lg-4 col-md-6 col-sm-6 col-{{ asset('xs-6 ">
-								<div class="p') }}roduct product-style-3 equal-elem ">
+							<li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
+								<div class="product product-style-3 equal-elem ">
 									<div class="product-thumnail">
 										<a href="detail.html" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
 											<figure><img src="{{ asset('assets/images/products/digital_15.jpg') }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
