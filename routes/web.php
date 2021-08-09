@@ -27,3 +27,17 @@ Route::get('/shop', ShopComponent::class)->name('shop');
 Route::get('/cart', CartComponent::class)->name('cart');
 
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
+
+//Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    //return view('dashboard');
+//})->name('dashboard');
+
+//Routes for users and customer 
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+
+});
+
+//Routes for admin
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+    
+});
