@@ -5,7 +5,7 @@
             <button form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
             <div class="wrap-list-cate">
                 <input type="hidden" name="product_cat" value="{{$product_cat}}" id="product-cate">
-                <input type="hidden" name="product_cat_id" value="{{$product_cat_id}}" id="product-cate">
+                <input type="hidden" name="product_cat_id" value="{{$product_cat_id}}" id="product-cate-id">
                 <a href="#" class="link-control">{{str_split($product_cat, 12)[0]}}</a>
                 <ul class="list-cate">
                     <li class="level-0">All Category</li>
