@@ -16,6 +16,11 @@
                     </div>
 
                     <div class="panel-body">
+                        @if(Session::has('message'))
+                            <div class="alert alert-success" role="alert">
+                                {{Session::get('message')}}
+                            </div>
+                        @endif
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -42,7 +47,10 @@
                                         <td>{{$slider->link}}</td>
                                         <td>{{$slider->status == 1 ? 'Active':'Inactive'}}</td>
                                         <td>{{$slider->created_at}}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{route('admin.edithomeslider', ['slide_id'=>$slider->id])}}"><i class="fa fa-edit fa-2x text-info"></i></a>
+                                            <a href="#" wire:click.prevent="deleteSlide({{$slider->id}})"><i class="fa fa-times fa-2x text-danger"></i></a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
