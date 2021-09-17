@@ -482,6 +482,7 @@
 	<script src="{{ asset('assets/js/functions.js') }}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js" integrity="sha512-jWNpWAWx86B/GZV4Qsce63q5jxx/rpWnw812vh0RE+SBIo/mmepwOSQkY2eVQnMuE28pzUEO7ux0a5sJX91g8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.tiny.cloud/1/u739sx3kjt7rc1qocfgw99iatzlmq9wmp9lm42hxl5tvumvo/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     @livewireScripts
 
 	@stack('scripts')
