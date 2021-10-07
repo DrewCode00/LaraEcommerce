@@ -2,11 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Coupon;
 use Livewire\Component;
 use Cart;
 
 class CartComponent extends Component
 {
+    public $haveCouponCode;
+    public $couponCode;
+
     public function increaseQuantity($rowId)
     {
         $product = Cart::instance('cart')->get($rowId);
@@ -58,6 +62,18 @@ class CartComponent extends Component
     {
         Cart::instance('saveForLater')->remove($rowId);
         session()->flash('s_success_message', 'item has been removed from save for later');
+    }
+
+    public function applyCouponCode()
+    {
+        $coupon = Coupon::where('code',$this->couponCode)->where('cart_value', '<=', Cart::instance('cart')->subtotal())->first();
+        if(!$coupon)
+        {
+            session()->flash('coupon_message', 'Coupon code is invalid');
+            return;
+        }  
+        
+        
     }
 
     public function render()
