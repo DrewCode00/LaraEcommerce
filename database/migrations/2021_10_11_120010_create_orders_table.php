@@ -20,6 +20,8 @@ class CreateOrdersTable extends Migration
             $table->decimal('discount')->default(0);
             $table->decimal('tax');
             $table->decimal('total');
+            $table->string('firstname');
+            $table->string('lastname');
             $table->string('mobile');
             $table->string('email');
             $table->string('line1');
