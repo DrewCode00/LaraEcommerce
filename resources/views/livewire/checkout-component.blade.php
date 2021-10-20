@@ -135,8 +135,37 @@
 					<div class="summary summary-checkout">
 						<div class="summary-item payment-method">
 							<h4 class="title-box">Payment Method</h4>
-							<p class="summary-info"><span class="title">Check / Money order</span></p>
-							<p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
+							<div class="wrap-address-billing">
+								<p class="row-in-form">
+									<label for="card-no">Card Number:</label>
+									<input type="text" name="card-no" value="" placeholder="Card number" wire:model="s_zipcode">
+									@error('s_zipcode') <span class="text-danger">{{$message}}</span> @enderror
+								</p>
+
+								<p class="row-in-form">
+									<label for="exp-month">Expiry Month</label>
+									<input type="text" name="exp-month" value="" placeholder="Expiry month" wire:model="s_zipcode">
+									@error('s_zipcode') <span class="text-danger">{{$message}}</span> @enderror
+								</p>
+
+								<p class="row-in-form">
+									<label for="zip-code">Postcode / ZIP:</label>
+									<input type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="s_zipcode">
+									@error('s_zipcode') <span class="text-danger">{{$message}}</span> @enderror
+								</p>
+
+								<p class="row-in-form">
+									<label for="zip-code">Postcode / ZIP:</label>
+									<input type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="s_zipcode">
+									@error('s_zipcode') <span class="text-danger">{{$message}}</span> @enderror
+								</p>
+
+								<p class="row-in-form">
+									<label for="zip-code">Postcode / ZIP:</label>
+									<input type="number" name="zip-code" value="" placeholder="Your postal code" wire:model="s_zipcode">
+									@error('s_zipcode') <span class="text-danger">{{$message}}</span> @enderror
+								</p>
+							</div>
 							<div class="choose-payment-methods">
 								<label class="payment-method">
 									<input name="payment-method" id="payment-method-bank" value="cod" type="radio" wire:model="paymentmode">
