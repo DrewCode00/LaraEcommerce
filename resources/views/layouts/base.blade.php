@@ -122,6 +122,9 @@
 													<li class="menu-item" >
 														<a title="My orders" href="{{ route('user.orders') }}">My Orders</a>
 													</li>
+													<li class="menu-item" >
+														<a title="Change password" href="{{ route('user.changepassword') }}">Change Password</a>
+													</li>
 													<li class= "menu-item">
 														<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 													</li>
