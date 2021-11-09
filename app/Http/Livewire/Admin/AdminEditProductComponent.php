@@ -28,6 +28,9 @@ class AdminEditProductComponent extends Component
     public $newimage;
     public $product_id;
 
+    public $images;
+    public $newimages;
+
     public function mount($product_slug)
     {
         $product = Product::where('slug', $product_slug)->first();
@@ -43,6 +46,7 @@ class AdminEditProductComponent extends Component
         $this->featured = $product->featured; 
         $this->quantity = $product->quantity;
         $this->image = $product->image;
+        $this->images = explode(",",$product->images);
         $this->category_id = $product->category_id;
         $this->product_id = $product->id;
     }
@@ -64,16 +68,22 @@ class AdminEditProductComponent extends Component
          'SKU' => 'required',
          'stock_status' => 'required',
          'quantity' => 'required|numeric',
-         'newimage' => 'required|mimes:jpeg,png',
          'category_id' => 'required'
         ]);
+
+        if($this->newimage)
+        {
+            $this->validateOnly($fields,[
+                'newimage' => 'required|mimes:jpeg,png',
+            ]);
+        }
     }
 
     public function updateProduct()
     {
         $this->validate([
             'name' => 'required',
-            'slug' => 'required|unique:products',
+            'slug' => 'required',
             'short_description' => 'required',
             'description' => 'required',
             'regular_price' => 'required|numeric',
@@ -81,9 +91,15 @@ class AdminEditProductComponent extends Component
             'SKU' => 'required',
             'stock_status' => 'required',
             'quantity' => 'required|numeric',
-            'newimage' => 'required|mimes:jpeg,png',
             'category_id' => 'required'
         ]);
+
+        if($this->newimage)
+        {
+            $this->validate([
+                'newimage' => 'required|mimes:jpeg,png',
+            ]);
+        }
 
         $product = Product::find($this->product_id);
 
@@ -100,9 +116,34 @@ class AdminEditProductComponent extends Component
 
         if($this->newimage)
         {
+            unlink('assets/images/products'.'/'.$product->image);
             $imageName = Carbon::now()->timestamp. '.' . $this->newimage->extension();
             $this->newimage->storeAs('products', $imageName);
             $product->image = $imageName;
+        }
+
+        if($this->newimages)
+        {
+            if($product->images)
+            {
+                $images = explode(",",$product->images);
+                foreach($images as $image)
+                {
+                    if($image)
+                    {
+                        unlink('assets/images/products'.'/'.$image);
+                    }
+                }
+            }
+
+            $imagename = '';
+            foreach($this->newimages as $key=>$image)
+            {
+                $imgName = Carbon::now()->timestamp . $key . '.' . $image->extension();
+                $image->storeAs('products',$imgName);
+                $imagesname = $imagesname . ',' . $imgName;
+            }
+            $product->images = $imagesname;
         }
 
         $product->category_id = $this->category_id;
