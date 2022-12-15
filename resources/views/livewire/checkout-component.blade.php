@@ -143,7 +143,7 @@
 							</div>
 						@endif
 					</div>
-					
+
 					<div class="summary summary-checkout">
 						<div class="summary-item payment-method">
 							<h4 class="title-box">Payment Method</h4>
@@ -175,7 +175,7 @@
 										<input type="password" name="cvc" value="" placeholder="CVC" wire:model="cvc">
 										@error('cvc') <span class="text-danger">{{$message}}</span> @enderror
 									</p>
-								</div>	 
+								</div>
 							@endif
 							<div class="choose-payment-methods">
 								<label class="payment-method">
@@ -186,7 +186,7 @@
 								<label class="payment-method">
 									<input name="payment-method" id="payment-method-visa" value="card" type="radio" wire:model="paymentmode">
 									<span>Debit / Credit Card Pay</span>
-									<span class="payment-desc">There are many variations of passages of Lorem Ipsum available</span>
+									<span class="payment-desc"></span>
 								</label>
 								<label class="payment-method">
 									<input name="payment-method" id="payment-method-paypal" value="paypal" type="radio" wire:model="paymentmode">
@@ -197,14 +197,14 @@
 								@error('paymentmode') <span class="text-danger">{{$message}}</span> @enderror
 							</div>
 							@if(Session::has('checkout'))
-								<p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">${{Session::get('checkout')['total']}}</span></p>
+								<p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">AED {{Session::get('checkout')['total']}}</span></p>
 							@endif
 							<button type="submit" class="btn btn-medium">Place order now</button>
 						</div>
 						<div class="summary-item shipping-method">
 							<h4 class="title-box f-title">Shipping method</h4>
 							<p class="summary-info"><span class="title">Flat Rate</span></p>
-							<p class="summary-info"><span class="title">Fixed $0</span></p>
+							<p class="summary-info"><span class="title">Fixed AED 0</span></p>
 						</div>
 					</div>
 				</form>

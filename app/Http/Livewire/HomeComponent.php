@@ -2,11 +2,12 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Category;
-use App\Models\HomeCategory;
-use App\Models\HomeSlider;
+use App\Models\Sale;
 use App\Models\Product;
 use Livewire\Component;
+use App\Models\Category;
+use App\Models\HomeSlider;
+use App\Models\HomeCategory;
 
 class HomeComponent extends Component
 {
@@ -19,6 +20,9 @@ class HomeComponent extends Component
         $categories = Category::whereIn('id', $cats)->get();
         $no_of_products = $category->no_of_products;
         $sproducts = Product::where('sale_price','>','0')->inRandomOrder()->get()->take(8);
-        return view('livewire.home-component',['sliders'=>$sliders, 'lproducts'=>$lproducts,'categories'=>$categories, 'no_of_products'=>$no_of_products, 'sproducts'=>$sproducts])->layout('layouts.base');
+        $sale=Sale::find(1);
+
+        $product = Product::orderBy('created_at', 'DESC')->get()->take(8);
+        return view('livewire.home-component',['sliders'=>$sliders, 'lproducts'=>$lproducts,'categories'=>$categories, 'no_of_products'=>$no_of_products, 'sproducts'=>$sproducts, 'sale'=>$sale, 'product'=>$product])->layout('layouts.base');
     }
 }

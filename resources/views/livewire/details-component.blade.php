@@ -5,7 +5,7 @@
 			font-size: 13px !important;
 			color: #aaaaaa !important;
 			text-decoration: line-through;
-			padding-left: 10px; 
+			padding-left: 10px;
 		}
 	</style>
 		<div class="container">
@@ -25,7 +25,7 @@
 							    <li data-thumb="{{ asset('assets/images/products') }}/{{ $product->image }}">
 							    	<img src="{{ asset('assets/images/products')}}/{{ $product->image }}" alt="{{ $product->name }}" />
 							    </li>
-								@php 
+								@php
 									$images = explode(",",$product->images);
 								@endphp
 								@foreach ($images as $image)
@@ -71,11 +71,11 @@
                             </div>
 							@if($product->sale_price > 0)
 								<div class="wrap-price">
-									<span class="product-price">${{ $product->sale_price }}</span>
-									<del><span class="product-price regprice">${{$product->regular_price}}</span></del>
+									<span class="product-price">AED {{ $product->sale_price }}</span>
+									<del><span class="product-price regprice">AED {{$product->regular_price}}</span></del>
 								</div>
 							@else
-                            	<div class="wrap-price"><span class="product-price">${{ $product->regular_price }}</span></div>
+                            	<div class="wrap-price"><span class="product-price">AED {{ $product->regular_price }}</span></div>
 							@endif
                             <div class="stock-info in-stock">
                                 <p class="availability">Availability: <b>{{ $product->stock_status }}</b></p>
@@ -84,16 +84,16 @@
                             	<span>Quantity:</span>
 								<div class="quantity-input">
 									<input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" wire:model="qty">
-									
+
 									<a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuantity"></a>
 									<a class="btn btn-increase" href="#" wire:click.prevent="increaseQuantity"></a>
 								</div>
 							</div>
 							<div class="wrap-butons">
-								<a href="#" class="btn add-to-cart" wire::click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add to Cart</a>
+								<a href="#" class="btn add-to-cart" wire:click.prevent="store({{$product->id}}, '{{$product->name}}', {{$product->regular_price}})">Add to Cart</a>
                                 <div class="wrap-btn">
                                     <a href="#" class="btn btn-compare">Add Compare</a>
-                                    <a href="#" class="btn btn-wishlist">Add Wishlist</a>
+                                    <a href="#" wire:click.prevent="addToWishlist({{$product->id}}, '{{$product->name}}', {{ $product->regular_price }})" class="btn btn-wishlist">Add Wishlist</a>
                                 </div>
 							</div>
 						</div>
@@ -111,19 +111,19 @@
 									<table class="shop_attributes">
 										<tbody>
 											<tr>
-												<th>Weight</th><td class="product_weight">1 kg</td>
+												<th>Weight</th><td class="product_weight"></td>
 											</tr>
 											<tr>
-												<th>Dimensions</th><td class="product_dimensions">12 x 15 x 23 cm</td>
+												<th>Dimensions</th><td class="product_dimensions"></td>
 											</tr>
 											<tr>
-												<th>Color</th><td><p>Black, Blue, Grey, Violet, Yellow</p></td>
+												<th>Color</th><td><p></p></td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
 								<div class="tab-content-item " id="review">
-									
+
 									<div class="wrap-review-form">
 										<style>
 											.width-0-percent{
@@ -145,20 +145,20 @@
 												width: 100%;
 											}
 										</style>
-										
+
 										<div id="comments">
 											<h2 class="woocommerce-Reviews-title">{{$product->orderItems->where('rstatus',1)->count()}} review for <span>{{$product->name}}</span></h2>
 											<ol class="commentlist">
 												@foreach($product->orderItems->where('rstatus',1) as $orderItem)
 												<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
-													<div id="comment-20" class="comment_container"> 
+													<div id="comment-20" class="comment_container">
 														<img alt="" src="{{ asset('assets/images/author-avata.jpg') }}" height="80" width="80">
 														<div class="comment-text">
 															<div class="star-rating">
 																<span class="width-{{ $orderItem->review->rating * 20 }}-percent">Rated <strong class="rating">{{$orderItem->review->rating}}</strong> out of 5</span>
 															</div>
-															<p class="meta"> 
-																<strong class="woocommerce-review__author">{{$orderItem->order->user->name}}</strong> 
+															<p class="meta">
+																<strong class="woocommerce-review__author">{{$orderItem->order->user->name}}</strong>
 																<span class="woocommerce-review__dash">–</span>
 																<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >{{Carbon\Carbon::parse($orderItem->review->created_at)->format('d F Y g:i A')}}</time>
 															</p>
@@ -189,8 +189,8 @@
 										<i class="fa fa-truck" aria-hidden="true"></i>
 										<div class="right-content">
 											<b class="title">Free Shipping</b>
-											<span class="subtitle">On Oder Over $99</span>
-											<p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+											<span class="subtitle">On Orders Over AED 1500</span>
+											<p class="desc"></p>
 										</div>
 									</a>
 								</li>
@@ -201,7 +201,7 @@
 										<div class="right-content">
 											<b class="title">Special Offer</b>
 											<span class="subtitle">Get a gift!</span>
-											<p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+											<p class="desc">Share a product on social media and get a price cut-off!</p>
 										</div>
 									</a>
 								</li>
@@ -212,7 +212,7 @@
 										<div class="right-content">
 											<b class="title">Order Return</b>
 											<span class="subtitle">Return within 7 days</span>
-											<p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+											<p class="desc"></p>
 										</div>
 									</a>
 								</li>
@@ -234,7 +234,7 @@
 										</div>
 										<div class="product-info">
 											<a href="{{ route('product.details', ['slug'=>$p_product->slug])}}" title="{{ $p_product->name }}" class="product-name"><span>{{ $p_product->name }}</span></a>
-											<div class="wrap-price"><span class="product-price">${{ $p_product->regular_price}}</span></div>
+											<div class="wrap-price"><span class="product-price">AED {{ $p_product->regular_price}}</span></div>
 										</div>
 									</div>
 								</li>
@@ -265,7 +265,7 @@
                                         </div>
                                         <div class="product-info">
                                             <a href="{{ route('product.details', ['slug'=>$r_product->slug])}}" class="product-name"><span>{{ $r_product->name }}</span></a>
-                                            <div class="wrap-price"><span class="product-price">${{ $r_product->regular_price }}</span></div>
+                                            <div class="wrap-price"><span class="product-price">AED {{ $r_product->regular_price }}</span></div>
                                         </div>
                                     </div>
                                 @endforeach

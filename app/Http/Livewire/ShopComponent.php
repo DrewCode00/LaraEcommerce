@@ -5,8 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\Product;
 use Cart;
 use Livewire\Component;
-use Livewire\WithPagination; 
-use App\Models\Category; 
+use Livewire\WithPagination;
+use App\Models\Category;
 
 class ShopComponent extends Component
 {
@@ -19,8 +19,8 @@ class ShopComponent extends Component
     public function mount()
     {
         $this->sorting = "default";
-        $this->pagesize = 12;   
-        
+        $this->pagesize = 12;
+
         $this->min_price = 1;
         $this->max_price = 1000;
     }
@@ -73,9 +73,10 @@ class ShopComponent extends Component
         {
             $products = Product::whereBetween('regular_price',[$this->min_price, $this->max_price])->paginate($this->pagesize);
         }
-        
-        $categories = Category::all(); 
 
-        return view('livewire.shop-component',['products'=> $products,'categories'=> $categories])->layout("layouts.base");
+        $categories = Category::all();
+
+        $popular_products = Product::inRandomOrder()->limit(4)->get();
+        return view('livewire.shop-component',['products'=> $products,'categories'=> $categories, 'popular_products'=> $popular_products])->layout("layouts.base");
     }
 }

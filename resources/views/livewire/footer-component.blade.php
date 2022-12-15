@@ -9,7 +9,7 @@
 							<i class="fa fa-truck" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Free Shipping</h4>
-								<p class="fc-desc">Free On Oder Over $99</p>
+								<p class="fc-desc">Free On Orders Over 550 AED</p>
 							</div>
 
 						</li>
@@ -25,7 +25,7 @@
 							<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Safe Payment</h4>
-								<p class="fc-desc">Safe your online payment</p>
+								<p class="fc-desc">Secure online payments</p>
 							</div>
 
 						</li>
@@ -65,7 +65,7 @@
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
 												<p class="contact-txt">{{$setting->email}}</p>
-											</li>											
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -78,14 +78,14 @@
 								<h3 class="item-header">Hot Line</h3>
 								<div class="item-content">
 									<div class="wrap-hotline-footer">
-										<span class="desc">Call Us toll Free</span>
+										<span class="desc">Call us for inquiries</span>
 										<b class="phone-number">{{$setting->phone2}}</b>
 									</div>
 								</div>
 							</div>
 
 							<div class="wrap-footer-item footer-item-second">
-								<h3 class="item-header">Sign up for newsletter</h3>
+								<h3 class="item-header">Sign up for our newsletter</h3>
 								<div class="item-content">
 									<div class="wrap-newletter-footer">
 										<form action="#" class="frm-newletter" id="frm-newletter">
@@ -165,12 +165,13 @@
 
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 							<div class="wrap-footer-item">
-								<h3 class="item-header">Dowload App</h3>
+								<h3 class="item-header">  </h3>
 								<div class="item-content">
 									<div class="wrap-list-item apps-list">
 										<ul>
+                                            <!--
 											<li><a href="#" class="link-to-item" title="our application on apple store"><figure><img src="assets/images/brands/apple-store.png" alt="apple store" width="128" height="36"></figure></a></li>
-											<li><a href="#" class="link-to-item" title="our application on google play store"><figure><img src="assets/images/brands/google-play-store.png" alt="google play store" width="128" height="36"></figure></a></li>
+											<li><a href="#" class="link-to-item" title="our application on google play store"><figure><img src="assets/images/brands/google-play-store.png" alt="google play store" width="128" height="36"></figure></a></li> -->
 										</ul>
 									</div>
 								</div>
@@ -180,11 +181,13 @@
 					</div>
 				</div>
 
+                <!--
 				<div class="wrap-back-link">
 					<div class="container">
 						<div class="back-link-box">
-							<h3 class="backlink-title">Quick Links</h3>
+							<h3 class="backlink-title"> </h3>
 							<div class="back-link-row">
+
 								<ul class="list-back-link" >
 									<li><span class="row-title">Mobiles:</span></li>
 									<li><a href="#" class="redirect-back-link" title="mobile">Mobiles</a></li>
@@ -228,22 +231,22 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 
 			</div>
 
 			<div class="coppy-right-box">
 				<div class="container">
 					<div class="coppy-right-item item-left">
-						<p class="coppy-right-text">Copyright © 2020 Surfside Media. All rights reserved</p>
+						<p class="coppy-right-text">Copyright © 2022 Smaster Creations LLC. All rights reserved</p>
 					</div>
 					<div class="coppy-right-item item-right">
 						<div class="wrap-nav horizontal-nav">
 							<ul>
-								<li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>								
-								<li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a></li>
-								<li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
-								<li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>								
+								<li class="menu-item"><a href="#" class="link-term">About us</a></li>
+								<li class="menu-item"><a href="#" class="link-term">Privacy Policy</a></li>
+								<li class="menu-item"><a href="#" class="link-term">Terms & Conditions</a></li>
+								<li class="menu-item"><a href="#" class="link-term">Return Policy</a></li>
 							</ul>
 						</div>
 					</div>

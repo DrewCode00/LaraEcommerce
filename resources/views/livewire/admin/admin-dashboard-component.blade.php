@@ -1,4 +1,4 @@
-<div class="content">   
+<div class="content">
     <style>
         .content {
           padding-top: 40px;
@@ -43,7 +43,7 @@
             color: #fff;
             background: #6685a4;
         }
-        
+
         .icon-stat-footer {
             padding: 10px 0 0;
             margin-top: 10px;
@@ -54,70 +54,70 @@
     </style>
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6">    
-              <div class="icon-stat">    
+            <div class="col-md-3 col-sm-6">
+              <div class="icon-stat">
                 <div class="row">
                   <div class="col-xs-8 text-left">
                     <span class="icon-stat-label">Total Revenue</span>
                     <span class="icon-stat-value">${{$totalRevenue}}</span>
-                  </div>   
+                  </div>
                   <div class="col-xs-4 text-center">
                     <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
                   </div>
-                </div>    
+                </div>
                 <div class="icon-stat-footer">
                   <i class="fa fa-clock-o"></i> Updated Now
-                </div>    
-              </div>    
-            </div>    
-            <div class="col-md-3 col-sm-6">    
-              <div class="icon-stat">    
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="icon-stat">
                 <div class="row">
                   <div class="col-xs-8 text-left">
                     <span class="icon-stat-label">Total Sales</span>
                     <span class="icon-stat-value">{{$totalSales}}</span>
-                  </div>    
+                  </div>
                   <div class="col-xs-4 text-center">
                     <i class="fa fa-gift icon-stat-visual bg-secondary"></i>
                   </div>
-                </div>    
+                </div>
                 <div class="icon-stat-footer">
                   <i class="fa fa-clock-o"></i> Updated Now
-                </div>   
+                </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6">    
-              <div class="icon-stat">    
+            <div class="col-md-3 col-sm-6">
+              <div class="icon-stat">
                 <div class="row">
                   <div class="col-xs-8 text-left">
                     <span class="icon-stat-label">Today Revenue</span>
                     <span class="icon-stat-value">${{$todayRevenue}}</span>
-                  </div>    
+                  </div>
                   <div class="col-xs-4 text-center">
                     <i class="fa fa-dollar icon-stat-visual bg-primary"></i>
                   </div>
-                </div>    
+                </div>
                 <div class="icon-stat-footer">
                   <i class="fa fa-clock-o"></i> Updated Now
                 </div>
-              </div>    
-            </div>    
-            <div class="col-md-3 col-sm-6">    
-              <div class="icon-stat">    
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="icon-stat">
                 <div class="row">
                   <div class="col-xs-8 text-left">
                     <span class="icon-stat-label">Today Sales</span>
                     <span class="icon-stat-value">{{$todaySales}}</span>
-                  </div>    
+                  </div>
                   <div class="col-xs-4 text-center">
                     <i class="fa fa-gift icon-stat-visual bg-secondary"></i>
                   </div>
-                </div>    
+                </div>
                 <div class="icon-stat-footer">
                   <i class="fa fa-clock-o"></i> Updated Now
-                </div>    
-              </div>    
-            </div>    
+                </div>
+              </div>
+            </div>
         </div>
         <div class="row">
           <div class="col-md-12">
@@ -148,10 +148,10 @@
                     @foreach ($orders as $order)
                       <tr>
                         <td>{{$order->id}}</td>
-                        <td>${{$order->subtotal}}</td>
-                        <td>${{$order->discount}}</td>
-                        <td>${{$order->tax}}</td>
-                        <td>${{$order->total}}</td>
+                        <td>AED{{$order->subtotal}}</td>
+                        <td>AED{{$order->discount}}</td>
+                        <td>AED{{$order->tax}}</td>
+                        <td>AED{{$order->total}}</td>
                         <td>{{$order->firstname}}</td>
                         <td>{{$order->lastname}}</td>
                         <td>{{$order->mobile}}</td>
@@ -167,6 +167,6 @@
               </div>
             </div>
           </div>
-        </div>        
-    </div>    
+        </div>
+    </div>
 </div>

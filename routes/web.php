@@ -13,6 +13,7 @@ use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminCategoryComponent;
 use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\Admin\AdminCouponsComponent;
+use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use App\Http\Livewire\Admin\AdminEditCouponComponent;
 use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
@@ -34,6 +35,17 @@ use App\Http\Livewire\User\UserOrdersComponent;
 use App\Http\Livewire\User\UserReviewComponent;
 use App\Http\Livewire\WishlistComponent;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Livewire\AncientComponent;
+use App\Http\Livewire\AuctionsComponent;
+use App\Http\Livewire\DiscoverComponent;
+use App\Http\Livewire\LiveComponent;
+use App\Http\Livewire\LuxuryComponent;
+use App\Http\Livewire\MemberComponent;
+use App\Http\Livewire\RealestateComponent;
+use App\Http\Livewire\SmasterspaceComponent;
+use App\Http\Livewire\SuperComponent;
+use App\Http\Livewire\SmasterwayComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,11 +77,32 @@ Route::get('/thank-you',ThankyouComponent::class)->name('thankyou');
 
 Route::get('/contact-us',ContactComponent::class)->name('contact');
 
+//added page routes
+Route::get('/ancient', AncientComponent::class);
+
+Route::get('/auctions', AuctionsComponent::class);
+
+Route::get('/discover', DiscoverComponent::class);
+
+Route::get('/live', LiveComponent::class);
+
+Route::get('/luxury', LuxuryComponent::class);
+
+Route::get('/member', MemberComponent::class);
+
+Route::get('/realestate', RealestateComponent::class);
+
+Route::get('/smasterspace', SmasterspaceComponent::class);
+
+Route::get('/smasterway', SmasterwayComponent::class);
+
+Route::get('/super', SuperComponent::class);
+
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     //return view('dashboard');
 //})->name('dashboard');
 
-//Routes for users and customer 
+//Routes for users and customer
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
     Route::get('/user/orders', UserOrdersComponent::class)->name('user.orders');
@@ -93,6 +126,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
     Route::get('/admin/slider/edit/{slide_id}', AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
 
     Route::get('/admin/home-categories', AdminHomeCategoryComponent::class)->name('admin.homecategories');
+    Route::get('/admin/sale', AdminSaleComponent::class)->name('admin.sale');
 
     Route::get('/admin/coupons', AdminCouponsComponent::class)->name('admin.coupons');
     Route::get('/admin/coupon/add', AdminAddCouponComponent::class)->name('admin.addcoupon');
@@ -100,7 +134,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
 
     Route::get('/admin/orders',AdminOrderComponent::class)->name('admin.orders');
     Route::get('/admin/orders/{order_id}',AdminOrderDetailsComponent::class)->name('admin.orders.details');
-    
+
     Route::get('/admin/contact-us',AdminContactComponent::class)->name('admin.contact');
 
     Route::get('/admin/settings', AdminSettingComponent::class)->name('admin.settings');
